@@ -1,70 +1,51 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow strict-local
- */
+// In App.js in a new project
 
-import React, { Component } from 'react';
-import type { Node } from 'react';
-import {
-  SafeAreaView,
-  ScrollView,
-  StatusBar,
-  StyleSheet,
-  Text,
-  useColorScheme,
-  View,
-} from 'react-native';
+import * as React from 'react';
+import { Button, View, Text } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
-import {
-  Colors,
-  DebugInstructions,
-  Header,
-  LearnMoreLinks,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
+function HomeScreen({ navigation }) {
+  return (
+    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+      <Text>Home Screen</Text>
+      <Button
+        title="Details"
+        onPress={() => navigation.navigate('Details')}
+      />
+    </View>
+  );
+}
 
-class App extends Component {
+const Stack = createNativeStackNavigator();
 
-  constructor() {
-    super()
-    console.log("constructor is called")
-  }
+function App() {
+  return (
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName="Home">
+        <Stack.Screen name="Home" component={HomeScreen} />
+        <Stack.Screen name="Details" component={DetailsScreen} />
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
+}
 
-  render() {
-    console.log("Render is called")
-    return (
-      <View>
-        <Text>Hello World</Text>
-      </View>
-    );
-  }
-
-  componentDidMount() {
-    console.log("componentDidMount is called")
-  }
-
-  componentDidUpdate() {
-    console.log("componentDidUpdate is called")
-
-  }
-
-
-  shouldComponentUpdate() {
-    console.log("shouldComponentUpdate is called")
-  }
-
-  getSnapshotBeforeUpdate() {
-    console.log("getSnapshotBeforeUpdate is called")
-  }
-
-
-  componentWillUnmount() {
-    console.log("componentWillUnmount is called")
-
-  }
+function DetailsScreen({ navigation }) {
+  return (
+    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+      <Text>Details Screen</Text>
+      <Button
+        title="Details... again"
+        onPress={() => navigation.push('Details')}
+      />
+      <Button title="Home" onPress={() => navigation.navigate('Home')} />
+      <Button title="Back" onPress={() => navigation.goBack()} />
+      <Button
+        title="First screen in stack"
+        onPress={() => navigation.popToTop()}
+      />
+    </View>
+  );
 }
 
 export default App;
