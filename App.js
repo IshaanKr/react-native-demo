@@ -5,6 +5,7 @@ import HomeScreen from './common/src/screens/HomeScreen';
 import LifecycleScreen from './common/src/screens/LifecycleScreen';
 import NavigationScreen from './common/src/screens/NavigationScreen';
 import FetchScreen from './common/src/screens/FetchScreen';
+import ReduxScreen from './common/src/screens/ReduxScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -16,7 +17,7 @@ function App() {
         <Stack.Screen name="Lifecycle" component={LifecycleScreen} />
         <Stack.Screen name="Navigation" component={NavigationScreen} />
         <Stack.Screen name="Fetch" component={FetchScreen} />
-      
+        <Stack.Screen name="Redux" component={ReduxScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );
