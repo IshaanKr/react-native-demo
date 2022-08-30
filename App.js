@@ -4,6 +4,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import HomeScreen from './common/src/screens/HomeScreen';
 import LifecycleScreen from './common/src/screens/LifecycleScreen';
 import NavigationScreen from './common/src/screens/NavigationScreen';
+import FetchScreen from './common/src/screens/FetchScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -14,6 +15,8 @@ function App() {
         <Stack.Screen name="Home" component={HomeScreen} />
         <Stack.Screen name="Lifecycle" component={LifecycleScreen} />
         <Stack.Screen name="Navigation" component={NavigationScreen} />
+        <Stack.Screen name="Fetch" component={FetchScreen} />
+      
       </Stack.Navigator>
     </NavigationContainer>
   );
